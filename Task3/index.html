@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll("img").forEach( image => 
+        {
+            image.addEventListener("click" , function () 
+          {
+             let model = document.querySelector(".model");
+             let clonedImage = image.cloneNode(true); 
+             clonedImage.style.width= "60%";
+             clonedImage.style.height= "auto";
+              model.appendChild(clonedImage); 
+              model.style.opacity="1";
+              model.style.visibility="visible";
+              model.style.width="100%";
+              model.addEventListener("click" ,function()
+            {
+              clonedImage.remove();
+              model.style.opacity="0";
+              model.style.visibility="hidden";
+              model.style.width="0%";
+
+            })
+          } )
+        }
+      )
+    }
+    
+  );
+  </script>
+  <body>
+    <main>
+      <section class="grid-container">
+          <div class="image">
+            <img src="assests/img.jpg" alt="" />
+          </div>       
+          <div class="image">
+            <img src="assests/img1.jpg" alt="" />
+          </div>       
+          <div class="image">
+            <img src="assests/img2.jpg" alt="" />
+          </div>
+      </section>
+      <div class="model">
+        
+      </div>
+    </main>
+  </body>
+</html>
