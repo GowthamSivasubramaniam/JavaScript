@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>To do list</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    </head>
+    <script>
+          function add()
+          {
+           let text = document.getElementById("t").value ;
+           if(text.trim() == "")
+           {
+            window.alert("Task cannot be empty");
+           }
+           else
+           {
+           let container = document.createElement('div');
+           container.className= "task";
+           let taskText = document.createElement('h4');
+           taskText.textContent = text;
+           taskText.className="text"
+           let button = document.createElement('button');
+           button.textContent = "❌";
+           button.className= "rem-button";
+           button.onclick = function ()
+           {
+            container.remove();
+           }
+           let status = document.createElement('button');
+            status.textContent = "🕒";
+            status.className= "status";
+            status.onclick = function ()
+            {
+                if(status.textContent.trim() === "✔︎")
+            {
+                status.style.backgroundColor= "rgb(240, 145, 145)";
+                status.style.color ="red"
+                status.textContent = "🕒";
+            }
+            else
+            {
+                status.style.backgroundColor= "rgb(145, 240, 164)";
+                status.style.color ="green"
+                status.textContent = "✔︎";
+            }
+            }
+           container.appendChild(taskText);
+           container.appendChild(button);
+           container.appendChild(status);
+
+           document.getElementById("task-container").appendChild(container);
+        }
+           
+            
+          }
+    </script>
+    <body>
+      <div class="list-container">
+        <h2> To do List</h2>
+        <div>
+            <input  id="t" type="text" placeholder="Enter the task"/>
+            <button onclick="add()">Add</button>
+        </div>
+        <div id="task-container">
+
+        </div>
+
+      </div>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+body
+{
+    font-family: nunito;
+    font-size: 15px;
+    margin-top: 2%;
+    justify-items: center;
+}
+button
+{
+    padding: 4%;
+    width: 5vw;
+    height: 6vh;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(145, 240, 162);
+}
+input
+{
+    height: 6vh;
+    width: 20vw;
+    outline: none;
+    border: none;
+    background-color: rgb(217, 217, 217);
+    border-radius: 5px;
+    padding: 2%;
+    font-family: nunito;
+    font-size: 15px;
+}
+.rem-button 
+{
+  background-color: rgb(240, 145, 145);
+  border: none;
+  width: 5vw;
+  height: 6vh;
+  margin-left:1%;
+}
+.status
+{
+    background-color: rgb(240, 145, 145);
+    border: none;
+    width: 6vw;
+    height: 6vh;
+    font-size: 20px;
+   padding: 1%; 
+   margin-left: 1%;
+}
+.status:active
+{
+    background-color: rgb(25, 174, 54);
+}
+.task
+{
+  display: flex;
+  border: 2px;
+  text-align: left;
+  margin-top: 1%;
+  height: 6vh;
+  width: 27.2vw;
+
+}
+.text
+{   
+    background-color: rgb(207, 224, 243);
+    margin-right: auto;
+    align-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 2%;
+    border-radius: 5px;
+
+}
+h2
+{
+    margin-bottom: 2%;
+    
+}
