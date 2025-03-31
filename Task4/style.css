@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+body
+{
+    font-family: nunito;
+    font-size: 15px;
+    margin-top: 2%;
+    justify-items: center;
+}
+button
+{
+    padding: 4%;
+    width: 5vw;
+    height: 6vh;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(145, 240, 162);
+}
+input
+{
+    height: 6vh;
+    width: 20vw;
+    outline: none;
+    border: none;
+    background-color: rgb(217, 217, 217);
+    border-radius: 5px;
+    padding: 2%;
+    font-family: nunito;
+    font-size: 15px;
+}
+
+h2
+{
+    margin-bottom: 2%;
+    
+}
+#weather-display
+{
+  display: grid;
+  grid-template-columns: 250px,1fr;
+  grid-template-areas: 
+  "location location"
+   "weather-container weather-container"
+   "conditions conditions" ;
+   gap: 5%;
+   margin: 1%;
+   padding: 10%;
+   background-color: rgb(197, 197, 197);
+   border-radius: 2%;
+}
+h1
+{
+  grid-area:location ;
+}
+.weather-container
+{
+  display: flex;
+  grid-area:weather-container;
+  align-items: center;
+  color: rgb(101, 116, 249);
+  gap: 5%;
+}
+img
+{
+  border-radius: 10%;
+  opacity: 1;
+}
+.conditions
+{
+  display: flex;
+  grid-area: conditions;
+  gap: 5%;
+}

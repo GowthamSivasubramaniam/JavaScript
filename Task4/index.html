@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>To do list</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    </head>
+    <script>
+         async function show()
+         {
+         let text = document.getElementById("t").value.trim();
+            
+            if (text === "") {
+                window.alert("City name cannot be empty");
+                return;
+            }
+
+            try {
+                let response = await fetch(`http://api.weatherstack.com/current?access_key=582baf3918252cb5fa6221ba14fe9103&query=${text}`);
+                let weatherData = await response.json();
+
+                if (weatherData.error) {
+                    alert("Invalid city name. Try again!");
+                    return;
+                }
+
+                let weatherDetails = {
+                    location: weatherData.location.name,
+                    country: weatherData.location.country,
+                    temperature: weatherData.current.temperature + "°C",
+                    weatherDescription: weatherData.current.weather_descriptions[0],
+                    weatherIcon: weatherData.current.weather_icons[0],
+                    humidity: "Humidity: " + weatherData.current.humidity + "%",
+                    windSpeed: "Wind: " + weatherData.current.wind_speed + " km/h",
+                    feelsLike: "Feels Like: " + weatherData.current.feelslike + "°C"
+                };
+
+                document.getElementById("location").innerHTML = weatherDetails.location + ", " + weatherDetails.country;
+                document.getElementById("icon").src = weatherDetails.weatherIcon;
+                document.getElementById("weather").innerHTML = weatherDetails.weatherDescription;
+                document.getElementById("temperature").innerHTML = weatherDetails.temperature;
+                document.getElementById("humidity").innerHTML = weatherDetails.humidity;
+                document.getElementById("wind_speed").innerHTML = weatherDetails.windSpeed;
+            } 
+            catch (error) {
+                alert("Error fetching data. Please try again.");
+                console.error(error);
+            }
+        }
+    </script>
+    <body>
+      <div class="list-container">
+        <h2> Weather </h2>
+        <div>
+            <input  id="t" type="text" placeholder="Enter the task"/>
+            <button onclick="show()">Show</button>
+        </div>
+        <div id="weather-display">
+           <h1 id="location"></h1>
+          <div class="weather-container">
+          <img id="icon" src="" />
+          <h3 id="weather"></h3>
+          </div>
+          <div class="conditions">
+          <h3 id="temperature"></h3>
+          <h4 id="humidity"></h4>
+          <h4 id="wind_speed"></h4>
+          </div>
+        </div>
+
+      </div>
+    </body>
+</html>
