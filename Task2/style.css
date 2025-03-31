@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+body
+{
+    font-family: nunito;
+    font-size: 15px;
+    margin-top: 2%;
+    justify-items: center;
+}
+.grid-container
+{
+    display: grid;
+    grid-template-columns:15vw,1fr ;
+    grid-template-areas:
+    "display display"
+    "numbers operators";
+    width: 25vw;
+    gap: 1%;
+}
+button
+{
+    padding: 4%;
+    width: 6vw;
+    height: 6vh;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(145, 240, 162);
+}
+.display
+{
+    grid-area: display;
+    width: 100%;
+    height: 10vh;
+    background-color: rgb(227, 227, 227);
+    text-align: center;
+    align-content: center;
+    font-size: large;
+    font-weight: bolder;
+    border-radius: 5px;
+}
+.numbers
+{
+    display: grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-area: numbers;
+    gap: 1%;
+}
+.numbers button:nth-child(11),
+.numbers button:nth-child(12)
+{
+    background-color: rgb(255, 149, 149);
+}
+button:hover
+{
+    cursor: pointer;
+}
+.operations
+{
+    display:grid;
+    grid-template-columns:repeat(1,1fr);
+    gap: 1%;
+    margin-left: 8%;
+    grid-area: operators;
+}
+

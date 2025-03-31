@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <title>To do list</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+    <script>
+     document.addEventListener("DOMContentLoaded", function () {
+    let number = "";
+    let left = "";
+    let right = "";
+    let result = "";
+    let operator = "";
+    
+    const display = document.querySelector(".display");
+
+    function isDigit(char) {
+        return /\d/.test(char);
+    }
+
+    document.querySelectorAll("button").forEach(button => {
+        button.addEventListener("click", function () {
+            let btnValue = this.textContent.trim();
+
+            if (isDigit(btnValue)) {
+                number += btnValue;
+                display.innerHTML = result ? result + " " + operator + " " + number : number;
+            } 
+            else if (btnValue === "AC") {
+                number = "";
+                left = "";
+                right = "";
+                result = "";
+                operator = "";
+                display.innerHTML = "";
+            } 
+            else if (btnValue === "CLR") {
+                number = number.slice(0, -1);
+                display.innerHTML = result ? result + " " + operator + " " + number : number;
+            } 
+            else {
+                if (number !== "") {
+                    if (left === "") {
+                        left = number;
+                    } else {
+                        right = number;
+                        switch (operator) {
+                            case "+": result = Number(left) + Number(right); break;
+                            case "-": result = Number(left) - Number(right); break;
+                            case "*": result = Number(left) * Number(right); break;
+                            case "/": 
+                                result = right !== "0" ? Number(left) / Number(right) : "Error"; 
+                                break;
+                        }
+                        left = String(result);
+                    }
+                    number = "";
+                }
+                operator = btnValue;
+                display.innerHTML = left + " " + operator;  
+            }
+        });
+    });
+});
+
+    </script>
+    <body>
+      <div class="grid-container">
+        <div class="display">
+        </div>
+        <div class="numbers">
+        <button>9</button>
+        <button>8</button>
+        <button>7</button>
+        <button>6</button>
+        <button>5</button>
+        <button>4</button>
+        <button>3</button>
+        <button>2</button>
+        <button>1</button>
+        <button>0</button>
+        <button>AC</button>
+        <button>CLR</button>
+        </div>
+        <div class="operations">
+            <button>+</button>
+            <button>-</button>
+            <button>*</button>
+            <button>/</button>
+        </div>
+       </div>
+    </body>
+</html>
