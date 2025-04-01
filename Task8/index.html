@@ -1,0 +1,56 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<script>
+  window.onhashchange = () => {
+    document.querySelectorAll(".page").forEach(page => {
+      page.style.display = "none";
+    })
+    if (window.location.hash === "#home") {
+      document.getElementById("home").style.display = "block";
+    }
+    if (window.location.hash === "#about") {
+      document.getElementById("about").style.display = "block";
+    }
+    if (window.location.hash === "#services") {
+      document.getElementById("services").style.display = "block";
+    }
+  }
+</script>
+
+<body>
+  <header>
+    <nav>
+      <ul class="navitems">
+        <li>
+          <h1 class="head"> Spotify </h1>
+        </li>
+        <li><div> <a href="#home"> Home </a> </div></li>
+        <li><div><a href="#about"> About </a></div></li>
+        <li> <div><a href="#services"> Services </a></div></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="home" class="page">
+      
+        <h1>welcome! have a plesent day </h1>
+     
+    </section>
+    <section id="about" class="page">
+   
+        <h1> A static page</h1>
+    
+    </section>
+    <section id="services" class="page">
+   
+        <h1> Html Development</h1>
+     
+    </section>
+  </main>
+</body>
+
+</html>
