@@ -1,0 +1,151 @@
+<html>
+
+<head>
+    <title>To do list</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<script>
+    async function start() {
+            let startButton=document.getElementById("quiz-start");
+             startButton.style.display="none";
+        try {
+            let response = await fetch("https://opentdb.com/api.php?amount=10&category=22&difficulty=easy&type=multiple");
+            let quizdata = await response.clone().json();
+            quizdata = quizdata.results;
+            console.log(quizdata);
+
+             
+            let index = 0;
+            let score = 0
+           
+            document.getElementById("time").style.display="flex";
+            document.getElementById("question").style.display="block";
+            document.getElementById("score").innerHTML="";
+            quiz();
+
+            function quiz() {
+                let timer; 
+                let timeLeft = 11; 
+                let question = quizdata[index].question;
+                console.log(question);
+                document.getElementById("question").innerHTML = question;
+                let options = [...quizdata[index].incorrect_answers, quizdata[index].correct_answer];
+                for(let i=0;i<options.length ;i++)
+            {
+                 j=Math.floor(Math.random() * 3);
+                [options[i], options[j]] = [options[j], options[i]];
+            }
+                correctAnswer = quizdata[index].correct_answer;
+                let optcontainer = document.getElementById("options");
+                optcontainer.innerHTML = "";
+                let flag = 0;
+                
+
+                timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById("timeing").innerText = " : "+"  "+timeLeft; 
+
+                if (timeLeft <= 0) {
+                    clearInterval(timer); 
+                    
+                    document.querySelectorAll(".option-btn").forEach(btn => {
+                        btn.disabled = true;
+                        if (btn.textContent === correctAnswer) {
+                            btn.style.backgroundColor = "rgb(126, 254, 222)"; 
+                        }
+                    });
+                    setTimeout(() => {
+                        next(); 
+                    }, 1000);
+                }
+            }, 1000);
+
+                options.forEach(element => {
+
+                    let option = document.createElement("button");
+                    option.textContent = element;
+                    optcontainer.appendChild(option);
+                    option.className = "option-btn";
+
+                    option.onclick = function () {
+                        if (option.textContent === quizdata[index].correct_answer) {
+                            score += 1;
+                            option.style.backgroundColor = "rgb(126, 254, 222)";
+                            document.querySelectorAll(".option-btn").forEach(btn => {
+                                btn.disabled = true;
+                            })
+                        }
+                        else {
+                            option.style.backgroundColor = "rgb(254, 126, 126)";
+                            document.querySelectorAll(".option-btn").forEach(btn => {
+                                btn.disabled = true;
+
+                                if (btn.textContent === quizdata[index].correct_answer) {
+                                    btn.style.backgroundColor = "rgb(126, 254, 222)";
+                                }
+                            });
+                        }
+                       
+                        setTimeout(() => {
+                        next(); 
+                    }, 500);
+                    clearTimeout(timer);
+
+                    }
+                });
+
+            }
+            function next() {
+                if (index < quizdata.length - 1) {
+                    index++;
+                    quiz();
+                } else {
+
+                    startButton.style.display="block";
+                    document.getElementById("score").innerHTML = `Your Score: ${score}`;
+                    document.getElementById("question").style.display="none";
+                    document.getElementById("options").innerHTML = "";
+                    document.getElementById("time").style.display="none";
+                }
+            }
+
+        }
+        catch (error) {
+            alert("Error fetching data. Please try again.");
+            console.error(error);
+        }
+    }
+
+</script>
+
+<body>
+    <div class="quiz-container">
+        <div id="quiz-start" onclick="start()">
+            Start Quiz
+        </div>
+        <div id="time"> 
+            <h3>Timer</h3>
+            <h3 id="timeing">: 00</h3>
+        </div>
+
+        <div id="question"> </div>
+        <div id="options"></div>
+
+        <div id="score"></div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
