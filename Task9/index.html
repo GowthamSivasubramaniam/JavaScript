@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <title>Infinite Scroll</title>
+</head>
+<body>
+
+    <h1>Infinite Scrolling page</h1>
+    <div class="container" id="container">
+    </div>
+    <div id="loading"><i class="fas fa-circle-notch fa-spin"></i></div>
+    <script>
+       
+             let list = document.getElementById("container");
+             let index=1;
+             loadContent();
+             function loadContent()
+             {
+                setTimeout(() => {
+             for (let i=0;i<45;i++)
+             {
+                 let li = document.createElement("li");
+                 li.textContent = "Item" +" "+index ;
+                 list.appendChild(li);
+                 index++;
+             }
+            } , 5000
+        )
+            }
+        
+            function checkScroll()
+            {
+             if(window.innerHeight+window.scrollY >= document.body.offsetHeight - 10 )
+             {
+                console.log(document.documentElement.scrollHeight);
+                console.log(window.innerHeight+window.scrollY);
+                loadContent();
+             }
+            }
+             window.addEventListener("scroll", checkScroll);
+       </script>
+</body>
+</html>
