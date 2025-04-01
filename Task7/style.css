@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+*
+{
+    margin: none;
+    padding: none;
+    box-sizing: border-box;
+    font-family: nunito;
+}
+.container
+{
+    align-content: center;
+    justify-items: center;
+    align-self: center;
+    justify-self: center;
+    background-color: aliceblue;
+    height: 90vh;
+    width: 80vw;
+    padding: 2%;
+}
+#chat-container
+{   
+    border-radius: 20px;
+    padding: 2%;
+    height :80%;
+    width :80%;
+    overflow: scroll;
+    background-color:rgb(197, 200, 200);
+}
+#chat-container ::-webkit-scrollbar-track
+{
+   background-color: transparent;
+}
+#chat-container ::-webkit-scrollbar-thumb
+{
+   background-color: transparent;
+}
+.sendertext
+{   
+
+    width: 40vw;
+    padding: 2%;
+ 
+}
+.receiverText
+{
+    
+    padding: 2%;
+    border-radius: 10px;
+}
+h1
+{
+    margin: 0;
+}
+span
+{   
+    font-size: small;
+    margin-left: auto;
+}
+.txt-container
+{
+    display: flex;
+    width: 40vw;
+    background-color: rgb(114, 116, 116);
+    margin-top: 1%;
+    padding: 2%;
+    border-radius: 10px;
+}
+.txt-container-sender
+{
+    display: flex;
+    width: 40vw;
+    background-color: rgb(89, 217, 217);
+    margin-top: 1%;
+    padding: 2%;
+    align-self: right;
+    justify-self: right;
+    border-radius: 10px;
+}
+
+.input-container
+{   
+    display: flex;
+    height: 10%;
+    width:  60vw;
+    background-color: rgb(209, 204, 204);
+    border: none;
+    outline: none;
+    margin: 2%;
+    border-radius: 20px;
+}
+input
+{
+    padding: 1%;
+    width: 90%;
+    font-size: large;
+    border: none;
+    outline: none;
+}
+button
+{
+    width: 10%;
+    background-color: rgb(164, 247, 220);
+    border: none;
+
+}
+button:hover
+{
+
+    background-color: rgb(143, 251, 215);
+    cursor: pointer;
+}

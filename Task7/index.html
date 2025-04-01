@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <title>To do list</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <script>
+    function send() {
+      let text = document.getElementById("t").value;
+      if (text.trim() == "") {
+        return;
+      } else {
+        let TextConatiner = document.createElement("div");
+        TextConatiner.className="txt-container-sender";
+        let taskText = document.createElement("h3");
+        taskText.textContent = text;
+        taskText.className = "sendertext";
+        let timestamp = document.createElement("span");
+        const d = new Date();
+        let hours = d.getHours();
+        let minutes = d.getMinutes();
+        hours = hours.toString().padStart(2, "0");
+        minutes = minutes.toString().padStart(2, "0");
+        let time = `${hours}:${minutes}`;
+        timestamp.textContent = time;
+        TextConatiner.appendChild(taskText);
+        TextConatiner.appendChild(timestamp);
+        document.getElementById("chat-container").appendChild(TextConatiner);
+      }
+    }
+    function receive()
+    {
+       const messages = ["hii" , "hello" , "hey" ,"hai"];
+       let index=Math.floor(Math.random() * 3);
+       let text = messages[index]
+        let TextConatiner = document.createElement("div");
+        TextConatiner.className="txt-container";
+        taskText = document.createElement("h3");
+        taskText.textContent = text;
+        taskText.className = "receiverText";
+        let timestamp = document.createElement("span");
+        const d = new Date();
+        let hours = d.getHours();
+        let minutes = d.getMinutes();
+        hours = hours.toString().padStart(2, "0");
+        minutes = minutes.toString().padStart(2, "0");
+        let time = `${hours}:${minutes}`;
+        timestamp.textContent = time;
+        TextConatiner.appendChild(taskText);
+        TextConatiner.appendChild(timestamp);
+        document.getElementById("chat-container").appendChild(TextConatiner);
+      }
+    setInterval( ()=> {
+        receive();
+    }, 4000)
+  </script>
+
+  <body>
+
+    <div class="container">
+      <h2>chat</h2>
+      <div id="chat-container"></div>
+      <div class="input-container">
+        <input id="t" type="text" placeholder="type your message here" />
+        <button onclick="send()">send</button>
+      </div>
+    </div>
+  </body>
+</html>
