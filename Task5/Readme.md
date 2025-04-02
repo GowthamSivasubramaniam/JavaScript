@@ -8,7 +8,4 @@ Build a quiz app that dynamically loads questions and tracks user scores.
 - Calculate and display the final score, providing feedback or explanations as needed.
 ## Demo
 
-https://github.com/user-attachments/assets/c63baf45-84b9-4ce4-9ed3-7784f39262c3
-
-
-https://github.com/user-attachments/assets/1d62f980-ad2a-4adc-ace5-cab16f5fde2b
+https://github.com/user-attachments/assets/c9bab305-3e33-4d22-81c4-1bf0063e34e7
