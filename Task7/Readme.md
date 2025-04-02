@@ -8,8 +8,4 @@ Develop a chat interface that simulates real-time messaging without a backend.
 - Handle user input, display timestamps, and update the conversation dynamically.
 
 ## Demo
-
-https://github.com/user-attachments/assets/c63baf45-84b9-4ce4-9ed3-7784f39262c3
-
-
-https://github.com/user-attachments/assets/1d62f980-ad2a-4adc-ace5-cab16f5fde2b
+https://github.com/user-attachments/assets/aab66ae8-6b4f-40aa-9528-7671f8a99925
