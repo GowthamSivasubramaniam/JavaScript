@@ -10,7 +10,4 @@ Create a simple to-do list app where users can add new tasks, mark them as compl
 
 ## Demo
 
-https://github.com/user-attachments/assets/c63baf45-84b9-4ce4-9ed3-7784f39262c3
-
-
-https://github.com/user-attachments/assets/1d62f980-ad2a-4adc-ace5-cab16f5fde2b
+https://github.com/user-attachments/assets/267875ef-5f60-40d8-ab6d-b83845864bea
