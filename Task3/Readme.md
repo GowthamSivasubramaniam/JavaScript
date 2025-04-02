@@ -9,7 +9,4 @@ Develop an image gallery where clicking a thumbnail opens a larger version in a 
 
 ## Demo
 
-https://github.com/user-attachments/assets/c63baf45-84b9-4ce4-9ed3-7784f39262c3
-
-
-https://github.com/user-attachments/assets/1d62f980-ad2a-4adc-ace5-cab16f5fde2b
+https://github.com/user-attachments/assets/e93fbe19-b1ef-4be7-a02f-20549e42db78
