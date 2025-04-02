@@ -5,6 +5,52 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <script>
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     let expression = "";  
+        //     const display = document.querySelector(".display");
+
+        //     function isDigit(char) {
+        //         return /\d/.test(char);
+        //     }
+
+        //     document.querySelectorAll("button").forEach(button => {
+        //         button.addEventListener("click", function () {
+        //             let btnValue = this.textContent.trim();
+
+        //             if (isDigit(btnValue) || btnValue === "." || btnValue === "(" || btnValue === ")") {
+        //                 expression += btnValue;
+        //                 display.innerHTML = expression;
+        //             } 
+        //             else if (btnValue === "AC") {
+        //                 expression = "";
+        //                 display.innerHTML = "";
+        //             } 
+        //             else if (btnValue === "CLR") {
+        //                 expression = expression.slice(0, -1);
+        //                 display.innerHTML = expression;
+        //             } 
+        //             else if (btnValue === "=") {
+        //                 try {
+        //                     let result = eval(expression);  
+        //                     display.innerHTML = result;
+        //                     expression = String(result);
+        //                 } catch {
+        //                     display.innerHTML = "Error";
+        //                     expression = "";
+        //                 }
+        //             }
+        //             else {  
+        //                 expression += ` ${btnValue} `;
+        //                 display.innerHTML = expression;
+        //             }
+        //         });
+        //     });
+        // });
+
+
+
+
+
       document.addEventListener("DOMContentLoaded", function () {
     let expression = "";
     const display = document.querySelector(".display");
