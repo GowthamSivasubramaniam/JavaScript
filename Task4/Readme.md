@@ -8,8 +8,4 @@ Create a weather app that fetches and displays weather information based on a ci
 - Implement error handling for invalid input or failed network requests.
 
 ## Demo
-
-https://github.com/user-attachments/assets/c63baf45-84b9-4ce4-9ed3-7784f39262c3
-
-
-https://github.com/user-attachments/assets/1d62f980-ad2a-4adc-ace5-cab16f5fde2b
+https://github.com/user-attachments/assets/1f7e4f6f-1e34-4b29-9ccd-9b174560dbab
