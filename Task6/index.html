@@ -44,7 +44,8 @@
         list.addEventListener('dragstart', (e) => {
             draggedItem = e.target;
             e.target.classList.add('dragging');
-        });
+        }
+    );
 
         list.addEventListener('dragover', (e) => {
             e.preventDefault();
