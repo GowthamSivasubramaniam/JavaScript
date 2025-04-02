@@ -15,3 +15,5 @@ Build a comprehensive eCommerce simulation that includes product listings, a sho
 ## Demo
 
 https://github.com/user-attachments/assets/c27d744c-d457-4004-8973-afb7d67add92
+
+https://github.com/user-attachments/assets/47469222-58a2-4fc6-8ba3-ede48fbb1609
