@@ -1,94 +1,127 @@
 <html>
     <head>
-        <title>To do list</title>
+        <title>Calculator</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
-
     </head>
     <script>
-     document.addEventListener("DOMContentLoaded", function () {
-    let number = "";
-    let left = "";
-    let right = "";
-    let result = "";
-    let operator = "";
-    
+      document.addEventListener("DOMContentLoaded", function () {
+    let expression = "";
     const display = document.querySelector(".display");
 
     function isDigit(char) {
         return /\d/.test(char);
     }
 
+    function evaluatePostfix(queue) {
+        let operands = [];
+        for (let token of queue) {
+            if (!isNaN(token)) {
+                operands.push(Number(token));
+            } else {
+                let b = operands.pop();
+                let a = operands.pop();
+                switch (token) {
+                    case "+": operands.push(a + b); break;
+                    case "-": operands.push(a - b); break;
+                    case "*": operands.push(a * b); break;
+                    case "/": operands.push(a / b); break;
+                }
+            }
+        }
+        return operands.pop();
+    }
+
+    function infixToPostfix(infix) {
+        let outputQueue = [];
+        let operatorStack = [];
+        let tokens = infix.match(/\d+|[()+\-*/]/g);
+
+        function precedence(op) {
+            if (op === "(" || op === ")") return 0;
+            if (op === "+" || op === "-") return 1;
+            if (op === "*" || op === "/") return 2;
+            return -1;
+        }
+
+        for (let token of tokens) {
+            if (!isNaN(token)) {
+                outputQueue.push(token);
+            } else if (token === "(") {
+                operatorStack.push(token);
+            } else if (token === ")") {
+                while (operatorStack.length > 0 && operatorStack[operatorStack.length - 1] !== "(") {
+                    outputQueue.push(operatorStack.pop());
+                }
+                operatorStack.pop();
+            } else {
+                while (
+                    operatorStack.length > 0 &&
+                    precedence(operatorStack[operatorStack.length - 1]) >= precedence(token)
+                ) {
+                    outputQueue.push(operatorStack.pop());
+                }
+                operatorStack.push(token);
+            }
+        }
+
+        while (operatorStack.length > 0) {
+            outputQueue.push(operatorStack.pop());
+        }
+
+        return outputQueue;
+    }
+
     document.querySelectorAll("button").forEach(button => {
         button.addEventListener("click", function () {
             let btnValue = this.textContent.trim();
 
-            if (isDigit(btnValue)) {
-                number += btnValue;
-                display.innerHTML = result ? result + " " + operator + " " + number : number;
-            } 
-            else if (btnValue === "AC") {
-                number = "";
-                left = "";
-                right = "";
-                result = "";
-                operator = "";
-                display.innerHTML = "";
-            } 
-            else if (btnValue === "CLR") {
-                number = number.slice(0, -1);
-                display.innerHTML = result ? result + " " + operator + " " + number : number;
-            } 
-            else {
-                if (number !== "") {
-                    if (left === "") {
-                        left = number;
-                    } else {
-                        right = number;
-                        switch (operator) {
-                            case "+": result = Number(left) + Number(right); break;
-                            case "-": result = Number(left) - Number(right); break;
-                            case "*": result = Number(left) * Number(right); break;
-                            case "/": 
-                                result = right !== "0" ? Number(left) / Number(right) : "Error"; 
-                                break;
-                        }
-                        left = String(result);
-                    }
-                    number = "";
-                }
-                operator = btnValue;
-                display.innerHTML = left + " " + operator;  
+            if (isDigit(btnValue) || btnValue === "(" || btnValue === ")") {
+                expression += btnValue;
+            } else if (btnValue === "AC") {
+                expression = "";
+            } else if (btnValue === "CLR") {
+                expression = expression.slice(0, -1);
+            } else if (btnValue === "=") {
+                let postfix = infixToPostfix(expression);
+                let result = evaluatePostfix(postfix);
+                expression = result.toString();
+            } else {
+                expression += " " + btnValue + " ";
             }
+
+            display.innerHTML = expression;
         });
     });
 });
-
     </script>
     <body>
-      <div class="grid-container">
-        <div class="display">
+        <div class="grid-container">
+            <div class="display"></div>
+            <div class="numbers">
+                <button>9</button>
+                <button>8</button>
+                <button>7</button>
+                <button>6</button>
+                <button>5</button>
+                <button>4</button>
+                <button>3</button>
+                <button>2</button>
+                <button>1</button>
+                <button>0</button>
+                <button>.</button>
+                <button>AC</button>
+                <button>CLR</button>
+            </div>
+            <div class="operations">
+                <button>+</button>
+                <button>-</button>
+                <button>*</button>
+                <button>/</button>
+                <button>(</button>
+                <button>)</button>
+                <button>=</button>
+            </div>
         </div>
-        <div class="numbers">
-        <button>9</button>
-        <button>8</button>
-        <button>7</button>
-        <button>6</button>
-        <button>5</button>
-        <button>4</button>
-        <button>3</button>
-        <button>2</button>
-        <button>1</button>
-        <button>0</button>
-        <button>AC</button>
-        <button>CLR</button>
-        </div>
-        <div class="operations">
-            <button>+</button>
-            <button>-</button>
-            <button>*</button>
-            <button>/</button>
-        </div>
-       </div>
     </body>
 </html>
