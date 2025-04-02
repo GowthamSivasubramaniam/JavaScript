@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="product.js"></script>
+    <script src="cart.js"></script>
+    
+</head>
+<body>
+    <header>
+        <nav>
+          <ul class="navitems">
+            <li>
+              <h1 class="head"> E-Cart </h1>
+            </li>
+            <li><div> <a href="#home"> Home </a> </div></li>
+            <li><div><a href="#cart"> Cart </a></div></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section id="home" class="page">
+            <input type="text" placeholder="search product" 
+
+       oninput="loadProducts(this.value);" >
+            <h1>Product Listings</h1>
+            <div class="product-container" id="product-container"></div>
+         
+        </section>
+        <section id="cart" class="page">
+            <input type="text" placeholder="search product" 
+
+       oninput="loadCart(this.value);" >
+            <h1> Your items</h1>
+            <div class="product-container" id="cart-container"></div>
+        </section>
+       
+      </main>
+      <section id="Model" class="page">
+        <div class="product-card" >
+        <h1 id="itemName"></h1>
+        <h1 id="itemQty"></h1>
+        <h1 id="itemPrice"></h1>
+        <h1 id="TotalPrice"></h1>
+        <button id="dispatch" onclick="dispatch()"> Place Order </button>
+        </div>
+    </section>
+</body>
+</html>
