@@ -10,7 +10,4 @@ Create a web page that loads additional content as the user scrolls toward the b
 
 ## Demo
 
-https://github.com/user-attachments/assets/c63baf45-84b9-4ce4-9ed3-7784f39262c3
-
-
-https://github.com/user-attachments/assets/1d62f980-ad2a-4adc-ace5-cab16f5fde2b
+https://github.com/user-attachments/assets/23670290-eced-439b-9bfb-d935700f9fbc
