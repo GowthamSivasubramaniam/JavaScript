@@ -9,8 +9,4 @@ Build a basic calculator that performs arithmetic operations like addition, subt
 - Update the display dynamically as the user interacts with the calculator.
 
 ## Demo
-
-https://github.com/user-attachments/assets/c63baf45-84b9-4ce4-9ed3-7784f39262c3
-
-
-https://github.com/user-attachments/assets/1d62f980-ad2a-4adc-ace5-cab16f5fde2b
+https://github.com/user-attachments/assets/83ee1ec9-a0e7-4335-a10f-c508b89bfc96
