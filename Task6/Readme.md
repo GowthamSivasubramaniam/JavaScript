@@ -11,7 +11,4 @@ Implement a list that allows users to reorder items using drag and drop function
 
 ## Demo
 
-https://github.com/user-attachments/assets/c63baf45-84b9-4ce4-9ed3-7784f39262c3
-
-
-https://github.com/user-attachments/assets/1d62f980-ad2a-4adc-ace5-cab16f5fde2b
+https://github.com/user-attachments/assets/5a8bb4fd-b8d6-412f-bc9c-c96c6f0c76ca
